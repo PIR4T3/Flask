@@ -1,0 +1,23 @@
+{% block body %}
+{% if session['username'] %}
+
+<center>
+   <h3>Welcome {{ session['username'] }}</h3><br><br>
+   <a href='/'>Home | </a><a href='/logout'>Logout</a>
+   <h4>About...</h4>
+</center>
+
+{% else %}
+
+<center>
+<h2>Login</h2>
+<form action="/login" method="POST">
+  <input type="username" name="username" placeholder="Username"><br><br>
+  <input type="password" name="password" placeholder="Password"><br><br>
+  <input type="submit" value="Log in">
+</form>
+<center>
+
+{% endif %}
+
+{% endblock %}

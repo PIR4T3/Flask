@@ -1,0 +1,27 @@
+{% block body %}
+{% if session['username']=='admin' %}
+<center>
+   <h4>Welcome {{ session['username'] }}</h4><br><br>
+   <p>You are Admin</p>
+   <a href='/about'>About | </a><a href='/logout'>Logout</a>
+</center>
+
+{% elif session['username']=='user' %}
+<center>
+   <h4>Welcome {{ session['username'] }}</h4><br><br>
+   <p>You are user</p>
+   <a href='/about'>About | </a><a href='/logout'>Logout</a>
+</center>
+
+{% else %}
+<center>
+<h2>Login</h2>
+<form action="/login" method="POST">
+  <input type="username" name="username" placeholder="Username"><br><br>
+  <input type="password" name="password" placeholder="Password"><br><br>
+  <input type="submit" value="Log in">
+</form>
+<center>
+
+{% endif %}
+{% endblock %}
